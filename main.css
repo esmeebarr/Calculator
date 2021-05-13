@@ -32,6 +32,9 @@ body {
   color: white;
   font-size: 3rem;
 }
+.calculator__buttons {
+  display: grid;
+}
 
 .calculator > button {
   cursor: pointer;
