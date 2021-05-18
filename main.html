@@ -9,32 +9,53 @@
     <script src="main.js" defer></script>
   </head>
   <body>
-    <div class="calculator">
-      <div class="calculator__screen">
-        <div class="numbers">123</div>
-        <div class="calculator__buttons"></div>
+    <div class="calculator-grid">
+      <div class="output">
+        <div data-previous-operand class="previous-operand"></div>
+        <div data-current-operand class="current-operand"></div>
       </div>
       <!-- buttons -->
-      <button class="operator" action="clear">AC</button>
-      <button class="operator" action="positive-negative">+/-</button>
-      <button class="operator" action="percentage"></i>">%</button>
-      <button class="operator" action="divide">÷</button>
-      <button>7</button>
-      <button>8</button>
-      <button>9</button>
-      <button class="operator" action="divide">X</button>
-      <button>4</button>
-      <button>5</button>
-      <button>6</button>
-      <button class="operator" action="subtract">-</button>
-      <button>1</button>
-      <button>2</button>
-      <button>3</button>
-      <button class="operator" action="add">+</button>
-      <!-- as the 0 button takes up 2 spaces -->
-      <button class="span-two">0</button>
-      <button class="operator" action="decimal">.</button>
-      <button class="operator" action="equals">=</button>
+      <button data-all-clear class="span-two">AC</button>
+      <!-- as AC takes up two spaces ^^ -->
+      <button data-delete>DEL</button>
+      <button data-operation>÷</button>
+      <button data-number>1</button>
+      <button data-number>2</button>
+      <button data-number>3</button>
+      <button data-operation>X</button>
+      <button data-number>4</button>
+      <button data-number>5</button>
+      <button data-number>6</button>
+      <button data-operation>+</button>
+      <button data-number>7</button>
+      <button data-number>8</button>
+      <button data-number>9</button>
+      <button data-operation>-</button>
+      <button data-number>.</button>
+      <button data-number>0</button>
+      <button data-equals class="span-two">=</button>
     </div>
   </body>
 </html>
+
+<!-- <button data-clear action="clear">AC</button>
+<button data-operator action="positive-negative">+/-</button>
+<button data-percent action="percent">%</button>
+<button data-divide action="divide">÷</button>
+<button data-number>7</button>
+<button data-number>8</button>
+<button data-number>9</button>
+<button data-multiply action="multiply">X</button>
+<button data-number>4</button>
+<button data-number>5</button>
+<button data-number>6</button>
+<button data-subtract action="subtract">-</button>
+<button data-number>1</button>
+<button data-number>2</button>
+<button data-number>3</button>
+<button data-add action="add">+</button>
+<!-- as the 0 button takes up 2 spaces -->
+<!-- <button data-numberclass="span-two">0</button>
+<button data-decimal action="decimal">.</button>
+<button data-equals action="equals">=</button> -->
+-->
