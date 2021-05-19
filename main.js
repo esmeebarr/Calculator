@@ -1,11 +1,3 @@
-//Create variables that will help us store targeted DOM elements
-//Create variables that will store our input
-//Add event listeners to all buttons
-//Create a function that will update the display value
-//Create a function that will perform the mathematical operation for us
-//Create a function that will clear everything
-//Create a function that will insert decimal points
-
 // const numberButtons = document.querySelectorAll(".data-number");
 // const operationButtons = document.querySelectorAll(".data-operations");
 // const equalsButton = document.querySelector("data-equals");
@@ -15,27 +7,6 @@
 // const calculator__buttonsElement = document.querySelector(
 //   "data-calculator__buttons"
 // );
-// // use class name
-// const calculator = new Calculator(calculator__buttonsElement, numbersElement);
-
-// numberButtons.forEach((button) => {
-//   button.addEventListener("click", () => {
-//     calculator.appendNumber(button.innerText);
-//     calculator.updateDisplay();
-//   });
-// });
-
-// const display = document.querySelector(".numbers");
-// const buttons = document.querySelectorAll("button");
-// const clickedButtonValue = document.querySelector("button");
-// // add event listener to every button
-// buttons.forEach(function (button) {
-//   button.addEventListener("click", calculate);
-// });
-
-// function calculate(event) {
-//   const clickedButtonValue = event.target.value;
-// }
 
 // if (clickedButtonValue === "=") {
 //   if (display.value === "") {
@@ -75,6 +46,14 @@
 //   console.log("positive-negative button!");
 // }
 
+//Create variables that will help us store targeted DOM elements
+//Create variables that will store our input
+//Add event listeners to all buttons
+//Create a function that will update the display value
+//Create a function that will perform the mathematical operation
+//Create a function that will clear the screen
+//Create a function that will insert decimal points
+
 // USING A CLASS TO MAKE MORE SIMPLE
 class Calculator {
   constructor(previousOperandTextElement, currentOperandTextElement) {
@@ -82,7 +61,7 @@ class Calculator {
     this.currentOperandTextElement = currentOperandTextElement;
     this.clear();
   }
-  //  FUNCTIONS
+  //  FUNCTIONS:
   // 1- CLEAR
   clear() {
     this.currentOperand = "";
@@ -93,12 +72,12 @@ class Calculator {
   delete() {
     this.currentOperand = this.currentOperand.toString().slice(0, -1);
   }
-
+  // ADDING NUMBER TO SCREEN
   appendNumber(number) {
     if (number === "." && this.currentOperand.includes(".")) return;
     this.currentOperand = this.currentOperand.toString() + number.toString();
   }
-
+  // FUNCTION
   chooseOperation(operation) {
     if (this.currentOperand === "") return;
     if (this.previousOperand !== "") {
@@ -108,7 +87,8 @@ class Calculator {
     this.previousOperand = this.currentOperand;
     this.currentOperand = "";
   }
-
+  // COMPUTE FUNCTION- CALCULATES END VALUE
+  // SWITCH STATEMENTS
   compute() {
     let computation;
     const prev = parseFloat(this.previousOperand);
@@ -118,6 +98,7 @@ class Calculator {
       case "+":
         computation = prev + current;
         break;
+      //break keyword -> breaks out of switch block + execution of code stopped
       case "-":
         computation = prev - current;
         break;
@@ -128,13 +109,14 @@ class Calculator {
         computation = prev / current;
         break;
       default:
+        // default -> the code that will run if there is no match
         return;
     }
     this.currentOperand = computation;
     this.operation = undefined;
     this.previousOperand = "";
   }
-
+  // DISPLAY- UPDATES VALUE FOR OUTPUT
   getDisplayNumber(number) {
     const stringNumber = number.toString();
     const integerDigits = parseFloat(stringNumber.split(".")[0]);
@@ -153,7 +135,7 @@ class Calculator {
       return integerDisplay;
     }
   }
-
+  // DISPLAY UPDATED WHEN BUTTONS CLICKED
   updateDisplay() {
     this.currentOperandTextElement.innerText = this.getDisplayNumber(
       this.currentOperand
