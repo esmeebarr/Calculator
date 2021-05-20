@@ -163,7 +163,7 @@ const calculator = new Calculator(
   currentOperandTextElement
 );
 
-// GIVE EVERY BUTTON AN EVENT LISTENER -> when we click on the button it will do something
+// GIVE EVERY BUTTON AN EVENT LISTENER -> when click on the button it will do something
 
 numberButtons.forEach((button) => {
   button.addEventListener("click", () => {
