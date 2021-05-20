@@ -1,13 +1,3 @@
-// const numberButtons = document.querySelectorAll(".data-number");
-// const operationButtons = document.querySelectorAll(".data-operations");
-// const equalsButton = document.querySelector("data-equals");
-// const deleteButton = document.querySelector("data-delete");
-// const clearButton = document.querySelector("data-clear");
-// const numbersElement = document.querySelector("data-numbers");
-// const calculator__buttonsElement = document.querySelector(
-//   "data-calculator__buttons"
-// );
-
 // if (clickedButtonValue === "=") {
 //   if (display.value === "") {
 //     display.value = display.value;
@@ -72,9 +62,11 @@ class Calculator {
   delete() {
     this.currentOperand = this.currentOperand.toString().slice(0, -1);
   }
+  // convert to string so numbers are added as 1+2 = 12 on screen instead of 1+2=3
   // ADDING NUMBER TO SCREEN
   appendNumber(number) {
     if (number === "." && this.currentOperand.includes(".")) return;
+    // so only one decimal place can be added
     this.currentOperand = this.currentOperand.toString() + number.toString();
   }
   // FUNCTION
@@ -88,17 +80,20 @@ class Calculator {
     this.currentOperand = "";
   }
   // COMPUTE FUNCTION- CALCULATES END VALUE
-  // SWITCH STATEMENTS
+
   compute() {
+    // variable for the result of the calculation
     let computation;
+    // string converted to number
     const prev = parseFloat(this.previousOperand);
     const current = parseFloat(this.currentOperand);
     if (isNaN(prev) || isNaN(current)) return;
+    // SWITCH STATEMENTS (instead of loads of if statements)
     switch (this.operation) {
       case "+":
         computation = prev + current;
         break;
-      //break keyword -> breaks out of switch block + execution of code stopped
+      //break keyword -> breaks out of switch block + execution of code stopped - just follows case
       case "-":
         computation = prev - current;
         break;
@@ -122,10 +117,11 @@ class Calculator {
     const integerDigits = parseFloat(stringNumber.split(".")[0]);
     const decimalDigits = stringNumber.split(".")[1];
     let integerDisplay;
+    // NAN is not a number
     if (isNaN(integerDigits)) {
       integerDisplay = "";
     } else {
-      integerDisplay = integerDigits.toLocaleString("en", {
+      integerDisplay = integerDigits.toLocaleString({
         maximumFractionDigits: 0,
       });
     }
@@ -167,7 +163,7 @@ const calculator = new Calculator(
   currentOperandTextElement
 );
 
-// GIVE EVERY BUTTON AN EVENT LISTENER
+// GIVE EVERY BUTTON AN EVENT LISTENER -> when we click on the button it will do something
 
 numberButtons.forEach((button) => {
   button.addEventListener("click", () => {
