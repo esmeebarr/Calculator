@@ -63,7 +63,7 @@ class Calculator {
     this.currentOperand = this.currentOperand.toString().slice(0, -1);
   }
   // convert to string so numbers are added as 1+2 = 12 on screen instead of 1+2=3
-  // ADDING NUMBER TO SCREEN
+  // 3- ADDING NUMBER TO SCREEN
   appendNumber(number) {
     if (number === "." && this.currentOperand.includes(".")) return;
     // so only one decimal place can be added
