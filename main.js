@@ -131,7 +131,7 @@ class Calculator {
       return integerDisplay;
     }
   }
-  // DISPLAY UPDATED WHEN BUTTONS CLICKED
+  // DISPLAY UPDATED WHEN BUTTONS CLICKED ON
   updateDisplay() {
     this.currentOperandTextElement.innerText = this.getDisplayNumber(
       this.currentOperand
